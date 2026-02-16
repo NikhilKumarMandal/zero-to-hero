@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { Loader2, Mic, MicOff, PhoneOff } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import { ConnectionState } from "@/types";
 import { Button } from "@/components/ui/button";
 import { MicSelector } from "@/components/ui/mic-selector";
+import { useAudioStore } from "@/store/useAudioStore";
 
 function ControlsPanel() {
+  const { connect } = useAudioStore();
   const [selectedDevice, setSelectedDevice] = useState<string>("");
   
   const isConnected = false;
